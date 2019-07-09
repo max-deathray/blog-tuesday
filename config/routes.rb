@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
  get 'about', to: 'pages#about'
 
+ #  I think this creates CRUD methods for articles!!!
+ resources :articles
+
 end
