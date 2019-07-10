@@ -30,13 +30,20 @@ class ArticlesController <ApplicationController
     def update
         @article = Article.find(params[:id])
         if @article.update(article_params)
-            flash[:notice] = "Article was updated"
-            redirect_to article_path(@article)
+         flash[:notice] = "Article was updated"
+         redirect_to article_path(@article)
         else
-            flash[:notice] = "Article was not updated"
-            render 'edit'
+         flash[:notice] = "Article was not updated"
+         render 'edit'
         end
-    end
+      end
+
+      def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        flash[:notice] = "Article was deleted"
+        redirect_to articles_path
+      end
 
     # private methods are for internal usage within the defining class    
 
