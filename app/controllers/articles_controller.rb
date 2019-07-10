@@ -2,6 +2,7 @@ class ArticlesController <ApplicationController
 
 
     def index
+        @articles = Article.all
     end
 
     def new
@@ -20,6 +21,21 @@ class ArticlesController <ApplicationController
 
     def show 
         @article = Article.find(params[:id])
+    end
+
+    def edit
+        @article = Article.find(params[:id])
+    end
+
+    def update
+        @article = Article.find(params[:id])
+        if @article.update(article_params)
+            flash[:notice] = "Article was updated"
+            redirect_to article_path(@article)
+        else
+            flash[:notice] = "Article was not updated"
+            render 'edit'
+        end
     end
 
     # private methods are for internal usage within the defining class    

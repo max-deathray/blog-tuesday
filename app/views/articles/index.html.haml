@@ -1,2 +1,9 @@
-%p test again!
-%p Probably gonna map over articles to display?
+%h1 Listing all articles
+%table
+  %tr
+    %th Title
+    %th Description
+  - @articles.each do |article|
+    %tr
+      %td= article.title
+      %td= article.description
