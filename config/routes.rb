@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
  get 'about', to: 'pages#about'
 
+ get 'signup', to: 'users#new'
+
+
  #  I think this creates CRUD paths for all articles?!!!
  resources :articles
+ resources :users, except: [:new]
 
 end
